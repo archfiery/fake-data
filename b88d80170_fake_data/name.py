@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 
 # It has English, Chinese, Japanese and Korean surnames
 last_name_pool = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Miller', 'Wilson',\

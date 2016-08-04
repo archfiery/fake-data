@@ -1,4 +1,4 @@
-from utils import *
+from .utils import *
 
 def street():
     names = ['Bridge', 'Church', 'Sloane', 'Lincoln', 'Harris', 'Meadow', 'Beech', 'Essex', 'Sussex', 'Madison',\

@@ -5,7 +5,7 @@ Not all names are valid
 https://www.business.qld.gov.au/industry/liquor-gaming/liquor/guidelines-listing/trading-names-licensed-premises
 '''
 
-from utils import *
+from .utils import *
 
 def company():
     prefix = ['James Potter\'s', 'Grand Spark', 'Black Hill', 'Tea Park', 'Liberty', 'Mr Chow\'', 'Jonson\'s', \
