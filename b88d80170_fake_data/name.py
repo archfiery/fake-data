@@ -7,37 +7,44 @@ last_name_pool = ['Smith', 'Johnson', 'Williams', 'Jones', 'Brown', 'Davis', 'Mi
                   'Lee', 'Walker', 'Wright', 'White', 'Clark', 'Collins', 'Cox', 'Diaz', 'Murphy',\
                   'Simmons', 'Parker', 'Wayne', 'Phillips', 'Turner', 'Wang', 'Li', 'Zhang', 'Ong',\
                   'Ng', 'Wu', 'Wong', 'Zhu', 'Zhou', 'Song', 'Chen', 'Chan', 'Dan', 'Chino', 'Hara',\
-                  'Hiraga', 'Daishi', 'Takeshi', 'Kim', 'Park', 'Kong', 'Ka', 'Seo']
+                  'Hiraga', 'Daishi', 'Takeshi', 'Kim', 'Park', 'Kong', 'Ka', 'Bass', 'Baggins']
 
 # It only has English first names
 female_first_name_pool = ['Emily', 'Chloe', 'Megan', 'Emma', 'Lauren', 'Amy', 'Lucy', 'Olivia', 'Katie', 'Jessica',\
                           'Sarah', 'Beth', 'Jade', 'Anna', 'Zoe', 'Lydia', 'Erin', 'Rosie', 'Molly', 'Grace', 'Lisa']
 
 male_first_name_pool = ['James', 'Harry', 'Jack', 'Alex', 'Ben', 'Daniel', 'Tom', 'Adam', 'Ryan', 'Sam', 'Matthew',\
-                        'Joe', 'Anthony', 'Nick', 'Jamie', 'Henry', 'Robert', 'Mark', 'Joseph', 'George', 'Lewis']
-
+                        'Joe', 'Anthony', 'Nick', 'Jamie', 'Henry', 'Robert', 'Mark', 'Joseph', 'George', 'Lewis', \
+                        'Frodo', 'Simon', 'Craig']
 
 def name_format(fn, ln):
     return ' '.join([fn, ln]).strip()
 
 def female_first_name():
-    return pickone(female_first_name_pool)
+    return (pickone(female_first_name_pool), 'F')
 
 def male_first_name():
-    return pickone(male_first_name_pool)
+    return (pickone(male_first_name_pool), 'M')
+
+def first_name():
+    return pickone([female_first_name(), male_first_name()])
 
 def last_name():
     return pickone(last_name_pool)
 
-def female_name():
-    fn = female_first_name()
-    ln = last_name()
-    return name_format(fn, ln)
-
-def male_name():
-    fn = male_first_name()
-    ln = last_name()
-    return name_format(fn, ln)
-
 def name():
-    return pickone([male_name(), female_name()])
+    return pickone([(male_name(), 'M'), (female_name(), 'F')])
+
+class Name:
+    def __init__(self, first_name, last_name, gender):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.gender = gender
+    def first_name(self):
+        return self.first_name
+    def last_name(self):
+        return self.last_name
+    def gender(self):
+        return self.gender
+    def name(self):
+        return self.first_name + ' ' + self.last_name

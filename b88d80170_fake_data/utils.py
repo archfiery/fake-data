@@ -7,9 +7,8 @@ def pickone(L):
 def pickchance(c):
     return random.random() <= c
 
-def randomIntList(numdigit):
+def random_int_list(numdigit):
     l = str()
     for i in range(numdigit):
         l += str(random.randint(0, 9))
     return l
-

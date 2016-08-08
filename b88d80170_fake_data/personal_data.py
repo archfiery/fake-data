@@ -1,32 +1,41 @@
 from .address import address
-from .company import company
+from .company import company_name
 from .dob import dob
 from .email import email
-from .name import name_format, female_first_name, male_first_name, last_name, female_name, male_name, name
+from .name import name_format, first_name, last_name, name
 from .phone import mobile, landline
+from .tsv import TSV
 
-class Person:
+class Person(TSV):
     def __init__(self, argv):
         if 'name' in argv:
             self.name = argv['name']
-        if 'company' in argv:
-            self.company = argv['company']
+        if 'gender' in argv:
+            self.gender = argv['gender']
+        #if 'company' in argv:
+        #    self.company = argv['company']
         if 'dob' in argv:
             self.dob = argv['dob']
-        if 'address' in argv:
-            self.address = argv['address']
+        #if 'address' in argv:
+        #    self.address = argv['address']
         if 'email' in argv:
             self.email = argv['email']
         if 'mobile' in argv:
             self.mobile = argv['mobile']
         if 'phone' in argv:
             self.phone = argv['phone']
-        if 'gender' in argv:
-            self.gender = argv['gender']
+
+    def to_list(self):
+        return [str(i) for i in [self.name, self.gender, self.dob, self.email, self.mobile, self.phone]]
+
     def __str__(self):
-        return self.name + '\n' + self.gender + '\n'\
-        + self.dob + '\n' + self.address + '\n'\
-        + self.email + '\n' + self.phone + '\n' + self.mobile
+        return '\n'.join(self.to_list())
+
+    def name(self):
+        return name
+        
+    def tsv(self):
+        return '\t'.join(self.to_list())
 
 def person_without_name():
     args = dict()

@@ -6,8 +6,8 @@ from .utils import *
 
 def landline():
     prefix = ['02', '03', '07', '08']
-    return pickone(prefix) + randomIntList(8)
+    return pickone(prefix) + random_int_list(8)
 
 def mobile():
     prefix = ['04', '05']
-    return  pickone(prefix) + randomIntList(8)
+    return  pickone(prefix) + random_int_list(8)
