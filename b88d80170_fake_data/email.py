@@ -1,5 +1,6 @@
 import hashlib
 
+
 def email(first, last):
     f, l = first.lower(), last.lower()
     h = hashlib.new('md5')

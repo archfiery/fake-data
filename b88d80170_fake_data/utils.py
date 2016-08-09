@@ -1,11 +1,14 @@
 import random
 
-def pickone(L):
-    return L[random.randint(0, len(L) - 1)]
+
+def pickone(l):
+    return l[random.randint(0, len(l) - 1)]
+
 
 # c is a float number between 0 and 1
 def pickchance(c):
     return random.random() <= c
+
 
 def random_int_list(numdigit):
     l = str()
